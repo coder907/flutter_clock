@@ -32,25 +32,25 @@ class ReBase60Digit extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final character = _converter.decode(code);
+    final rb60Digit = _converter.decode(code);
 
     if (displayMode == DisplayMode.uppercase) {
       return Text(
-        character.toUpperCase(),
+        rb60Digit.toUpperCase(),
         textScaleFactor: scaleFactor,
-        style: _textStyle(character),
+        style: _textStyle(rb60Digit),
       );
     } else {
       return Text(
-        character,
+        rb60Digit,
         textScaleFactor: scaleFactor,
       );
     }
   }
 
   /// Provides underlined text style to the uppercase digits of [ReBase60].
-  TextStyle _textStyle(String character) {
-    if (!StringUtils.isDigit(character) && StringUtils.isUpperCase(character)) {
+  TextStyle _textStyle(String rb60Digit) {
+    if (!StringUtils.isDigit(rb60Digit) && StringUtils.isUpperCase(rb60Digit)) {
       return TextStyle(decoration: TextDecoration.underline);
     } else {
       return null;
