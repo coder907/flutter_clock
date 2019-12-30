@@ -131,35 +131,35 @@ class ReBase60 {
 
   const ReBase60();
 
-  /// Encodes a single [ReBase60] character.
-  int encode(String character) {
-    if (character == null) {
-      throw ArgumentError.notNull('character');
-    }
-    if (character.isEmpty) {
-      throw ArgumentError('Argument must not be empty.');
-    }
-    if (character.length != 1) {
-      throw ArgumentError('Argument must contain exactly one character.');
-    }
-    if (!_encodeMap.containsKey(character)) {
-      throw ArgumentError.value(character, 'character', 'Invalid argument');
-    }
-
-    return _encodeMap[character];
-  }
-
-  /// Decodes a single [ReBase60] digit.
-  String decode(int digit) {
+  /// Encodes a single [ReBase60] digit.
+  int encode(String digit) {
     if (digit == null) {
       throw ArgumentError.notNull('digit');
     }
-    if (digit < 0 || digit > 59) {
+    if (digit.isEmpty) {
+      throw ArgumentError('Argument must not be empty.');
+    }
+    if (digit.length != 1) {
+      throw ArgumentError('Argument must contain exactly one digit.');
+    }
+    if (!_encodeMap.containsKey(digit)) {
+      throw ArgumentError.value(digit, 'digit', 'Invalid argument');
+    }
+
+    return _encodeMap[digit];
+  }
+
+  /// Decodes a single [ReBase60] digit.
+  String decode(int byte) {
+    if (byte == null) {
+      throw ArgumentError.notNull('byte');
+    }
+    if (byte < 0 || byte > 59) {
       throw ArgumentError(
         'Argument must be an integer between 0 and 59, inclusive.',
       );
     }
 
-    return _decodeMap[digit];
+    return _decodeMap[byte];
   }
 }
