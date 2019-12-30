@@ -21,14 +21,17 @@ class AppTheme {
   Color _textShadowColor;
   Color get textShadowColor => _textShadowColor;
 
-  /// Themed properties are defined based on the provided [ThemeData] 
+  final ThemeData _theme;
+  final ClockModel _model;
+
+  /// Themed properties are defined based on the provided [ThemeData]
   /// and [ClockModel].
   AppTheme(
-    ThemeData theme,
-    ClockModel model,
+    this._theme,
+    this._model,
   ) {
-    _defineColors(model.weatherCondition);
-    _adjustColors(theme.brightness);
+    _defineColors(_model.weatherCondition);
+    _adjustColors(_theme.brightness);
   }
 
   /// Defines colors based on [WeatherCondition].
@@ -63,6 +66,25 @@ class AppTheme {
       _backgroundColor = TinyColor(_backgroundColor).darken(50).color;
       _textColor = TinyColor(_textColor).darken(40).color;
       _textShadowColor = TinyColor(_textShadowColor).darken(30).color;
+    }
+  }
+  
+  /// An integer between 0 and 100, based on temperature.
+  int get temperatureIndex {
+    double temperature = _model.temperature;
+
+    if (_model.unit == TemperatureUnit.fahrenheit) {
+      temperature = (temperature - 32.0) * 5.0 / 9.0;
+    }
+
+    temperature += 50;
+
+    if (temperature <= 0) {
+      return 0;
+    } else if (temperature >= 100) {
+      return 100;
+    } else {
+      return temperature.round();
     }
   }
 }
