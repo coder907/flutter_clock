@@ -8,10 +8,19 @@ import 'package:flutter/material.dart';
 import 'containers/rebase60_clock.dart';
 
 void main() {
+  // A temporary measure until Platform supports web and TargetPlatform supports
+  // macOS.  
   if (!kIsWeb && Platform.isMacOS) {
+    // TODO(gspencergoog): Update this when TargetPlatform includes macOS.
+    // https://github.com/flutter/flutter/issues/31366
+    // See https://github.com/flutter/flutter/wiki/Desktop-shells#target-platform-override.    
     debugDefaultTargetPlatformOverride = TargetPlatform.fuchsia;
   }
 
+  // The [ClockCustomizer] takes in a [ClockBuilder] that consists of:
+  //  - A clock widget (in this case, [ReBase60Clock])
+  //  - A model (provided to you by [ClockModel])
+  // For more information, see the flutter_clock_helper package.
   runApp(
     ClockCustomizer((ClockModel model) => ReBase60Clock(model)),
   );

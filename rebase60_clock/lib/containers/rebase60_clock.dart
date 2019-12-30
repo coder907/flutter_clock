@@ -7,6 +7,9 @@ import 'package:flutter/material.dart';
 import '../presentation/rebase60_digit.dart';
 import '../utils/app_theme.dart';
 
+/// In the context of [Flutter Clock](https://flutter.dev/clock) contest,
+/// and since [ClockCustomizer] is not allowed to be modified, this widget
+/// could be tought of as a root widget.
 class ReBase60Clock extends StatefulWidget {
   //
   const ReBase60Clock(this.model);
@@ -17,6 +20,9 @@ class ReBase60Clock extends StatefulWidget {
   _ReBase60ClockState createState() => _ReBase60ClockState();
 }
 
+/// State for [ReBase60Clock].
+/// 
+/// GUI is created in the [build] method.
 class _ReBase60ClockState extends State<ReBase60Clock> {
   DateTime _dateTime = DateTime.now();
   Timer _timer;
@@ -97,6 +103,7 @@ class _ReBase60ClockState extends State<ReBase60Clock> {
     );
   }
 
+  /// Creates themed [TextStyle].
   TextStyle _textStyle(AppTheme appTheme) {
     return TextStyle(
       color: appTheme.textColor,

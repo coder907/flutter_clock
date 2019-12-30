@@ -1,3 +1,6 @@
+/// A utility class to help with rearranged base 60 (ReBase60) encoding.
+/// 
+/// For simplicity, only methods that operate on a single digit, are provided.
 class ReBase60 {
   //
   final _encodeMap = const {
@@ -128,6 +131,7 @@ class ReBase60 {
 
   const ReBase60();
 
+  /// Encodes a single [ReBase60] character.
   int encode(String character) {
     if (character == null) {
       throw ArgumentError.notNull('character');
@@ -145,16 +149,17 @@ class ReBase60 {
     return _encodeMap[character];
   }
 
-  String decode(int code) {
-    if (code == null) {
-      throw ArgumentError.notNull('code');
+  /// Decodes a single [ReBase60] digit.
+  String decode(int digit) {
+    if (digit == null) {
+      throw ArgumentError.notNull('digit');
     }
-    if (code < 0 || code > 59) {
+    if (digit < 0 || digit > 59) {
       throw ArgumentError(
         'Argument must be an integer between 0 and 59, inclusive.',
       );
     }
 
-    return _decodeMap[code];
+    return _decodeMap[digit];
   }
 }

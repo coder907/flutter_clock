@@ -4,6 +4,9 @@ import 'package:tinycolor/tinycolor.dart';
 
 import '../presentation/rebase60_digit.dart';
 
+/// A utility class that manages and provides access to themed properties.
+///
+/// A new instance of this class should be created on each (GUI) build.
 class AppTheme {
   //
   final fontFamily = 'Monaco';
@@ -18,6 +21,8 @@ class AppTheme {
   Color _textShadowColor;
   Color get textShadowColor => _textShadowColor;
 
+  /// Themed properties are defined based on the provided [ThemeData] 
+  /// and [ClockModel].
   AppTheme(
     ThemeData theme,
     ClockModel model,
@@ -26,6 +31,7 @@ class AppTheme {
     _adjustColors(theme.brightness);
   }
 
+  /// Defines colors based on [WeatherCondition].
   void _defineColors(WeatherCondition weatherCondition) {
     switch (weatherCondition) {
       case WeatherCondition.snowy:
@@ -51,6 +57,7 @@ class AppTheme {
     }
   }
 
+  /// Adjusts colors conditional on [Brightness].
   void _adjustColors(Brightness brightness) {
     if (brightness == Brightness.dark) {
       _backgroundColor = TinyColor(_backgroundColor).darken(50).color;
