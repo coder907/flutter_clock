@@ -21,7 +21,7 @@ class ReBase60Clock extends StatefulWidget {
 }
 
 /// State for [ReBase60Clock].
-/// 
+///
 /// GUI is created in the [build] method.
 class _ReBase60ClockState extends State<ReBase60Clock> {
   DateTime _dateTime = DateTime.now();
@@ -74,6 +74,8 @@ class _ReBase60ClockState extends State<ReBase60Clock> {
       Theme.of(context),
       widget.model,
     );
+    final flexUpper = ((100 - appTheme.temperatureIndex) / 100 * 67).round();
+    final flexLower = 100 - flexUpper;
 
     return Container(
       color: appTheme.backgroundColor,
@@ -81,7 +83,6 @@ class _ReBase60ClockState extends State<ReBase60Clock> {
         style: _textStyle(appTheme),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.baseline,
           textBaseline: TextBaseline.alphabetic,
           children: <Widget>[
             ReBase60Digit(
@@ -92,11 +93,22 @@ class _ReBase60ClockState extends State<ReBase60Clock> {
               code: _dateTime.minute,
               displayMode: appTheme.displayMode,
             ),
-            ReBase60Digit(
-              code: _dateTime.second,
-              displayMode: appTheme.displayMode,
-              scaleFactor: 1 / 3,
-            ),
+            Column(
+              children: <Widget>[
+                Flexible(
+                  flex: flexUpper,
+                  child: Container(),
+                ),
+                Flexible(
+                  flex: flexLower,
+                  child: ReBase60Digit(
+                    code: _dateTime.second,
+                    displayMode: appTheme.displayMode,
+                    scaleFactor: 1 / 3,
+                  ),
+                )
+              ],
+            )
           ],
         ),
       ),
