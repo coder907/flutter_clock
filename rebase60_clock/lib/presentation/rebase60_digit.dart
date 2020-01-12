@@ -2,10 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:basic_utils/basic_utils.dart';
 
 import '../utils/rebase60.dart';
+import 'shadow_text.dart';
 
 /// [ReBase60Digit] display modes.
 enum DisplayMode {
-  /// In [standard] mode, each [ReBase60] digit is presented with its respective 
+  /// In [standard] mode, each [ReBase60] digit is presented with its respective
   /// character.
   standard,
 
@@ -35,15 +36,15 @@ class ReBase60Digit extends StatelessWidget {
     final rb60Digit = _converter.decode(code);
 
     if (displayMode == DisplayMode.uppercase) {
-      return Text(
-        rb60Digit.toUpperCase(),
-        textScaleFactor: scaleFactor,
+      return ShadowText(
+        data: rb60Digit.toUpperCase(),
         style: _textStyle(rb60Digit),
+        scaleFactor: scaleFactor,
       );
     } else {
-      return Text(
-        rb60Digit,
-        textScaleFactor: scaleFactor,
+      return ShadowText(
+        data: rb60Digit,
+        scaleFactor: scaleFactor,
       );
     }
   }
