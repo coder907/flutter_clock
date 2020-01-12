@@ -4,13 +4,15 @@ import 'package:tinycolor/tinycolor.dart';
 
 import '../presentation/rebase60_digit.dart';
 
-/// A utility class that manages and provides access to themed properties.
+/// A utility class that provides access to themed and convenience properties.
 ///
 /// A new instance of this class should be created on each (GUI) build.
 class AppTheme {
   //
   final fontFamily = 'Monaco';
-  final displayMode = DisplayMode.uppercase;
+
+  DisplayMode _displayMode;
+  DisplayMode get displayMode => _displayMode;
 
   Color _backgroundColor;
   Color get backgroundColor => _backgroundColor;
@@ -32,6 +34,12 @@ class AppTheme {
   ) {
     _defineColors(_model.weatherCondition);
     _adjustColors(_theme.brightness);
+
+    // [DisplayMode] has nothing to do with hour format. Since [ClockModel] is 
+    // not allowed to be modified, we are mapping [is24HourFormat] value
+    // to [DisplayMode], for demonstration purpose.
+    _displayMode =
+        _model.is24HourFormat ? DisplayMode.standard : DisplayMode.uppercase;
   }
 
   /// Defines colors based on [WeatherCondition].
@@ -68,7 +76,7 @@ class AppTheme {
       _textShadowColor = TinyColor(_textShadowColor).darken(30).color;
     }
   }
-  
+
   /// An integer between 0 and 100, based on temperature.
   int get temperatureIndex {
     double temperature = _model.temperature;
