@@ -1,5 +1,5 @@
 /// A utility class to help with rearranged base 60 (ReBase60) encoding.
-/// 
+///
 /// For simplicity, only methods that operate on a single digit, are provided.
 class ReBase60 {
   //

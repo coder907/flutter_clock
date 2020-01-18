@@ -35,7 +35,7 @@ class AppTheme {
     _defineColors(_model.weatherCondition);
     _adjustColors(_theme.brightness);
 
-    // [DisplayMode] has nothing to do with hour format. Since [ClockModel] is 
+    // [DisplayMode] has nothing to do with hour format. Since [ClockModel] is
     // not allowed to be modified, we are mapping [is24HourFormat] value
     // to [DisplayMode], for demonstration purpose.
     _displayMode =
