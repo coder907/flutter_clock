@@ -29,15 +29,17 @@ class ShadowText extends StatelessWidget {
               style: textStyle.copyWith(color: Colors.black),
               textScaleFactor: scaleFactor,
             ),
-            BackdropFilter(
-              filter: ImageFilter.blur(
-                sigmaX: sqrt2,
-                sigmaY: sqrt2,
-              ),
-              child: Text(
-                data,
-                style: textStyle,
-                textScaleFactor: scaleFactor,
+            ClipRect(
+              child: BackdropFilter(
+                filter: ImageFilter.blur(
+                  sigmaX: sqrt2,
+                  sigmaY: sqrt2,
+                ),
+                child: Text(
+                  data,
+                  style: textStyle,
+                  textScaleFactor: scaleFactor,
+                ),
               ),
             ),
           ],
