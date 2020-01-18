@@ -120,7 +120,7 @@ class _ReBase60ClockState extends State<ReBase60Clock> {
     return TextStyle(
       color: appTheme.textColor,
       fontFamily: appTheme.fontFamily,
-      fontSize: MediaQuery.of(context).size.width / 2,
+      fontSize: MediaQuery.of(context).size.width / sqrt(5),
       shadows: [
         Shadow(
           blurRadius: 0,
