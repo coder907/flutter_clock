@@ -9,6 +9,10 @@ import 'package:flutter/services.dart';
 import 'containers/rebase60_clock.dart';
 
 void main() {
+  _run();
+}
+
+Future<void> _run() async {
   // A temporary measure until Platform supports web and TargetPlatform supports
   // macOS.
   if (!kIsWeb && Platform.isMacOS) {
@@ -20,7 +24,7 @@ void main() {
 
   WidgetsFlutterBinding.ensureInitialized();
 
-  SystemChrome.setPreferredOrientations([
+  await SystemChrome.setPreferredOrientations([
     DeviceOrientation.landscapeLeft,
     DeviceOrientation.landscapeRight,
   ]);
