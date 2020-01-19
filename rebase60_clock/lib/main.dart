@@ -4,6 +4,7 @@ import 'package:flutter_clock_helper/customizer.dart';
 import 'package:flutter_clock_helper/model.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 import 'containers/rebase60_clock.dart';
 
@@ -16,6 +17,13 @@ void main() {
     // See https://github.com/flutter/flutter/wiki/Desktop-shells#target-platform-override.
     debugDefaultTargetPlatformOverride = TargetPlatform.fuchsia;
   }
+
+  WidgetsFlutterBinding.ensureInitialized();
+
+  SystemChrome.setPreferredOrientations([
+    DeviceOrientation.landscapeLeft,
+    DeviceOrientation.landscapeRight,
+  ]);
 
   // The [ClockCustomizer] takes in a [ClockBuilder] that consists of:
   //  - A clock widget (in this case, [ReBase60Clock])
