@@ -8,15 +8,15 @@ It takes a bit of practice to learn the mapping but, after a couple of days, one
 
 ## Examples
 
-Instead of *"I'll meet you at **twelve o'clock**"*, one would say *"I'll meet you at **l**"*.
+Instead of *\"I'll meet you at **twelve o'clock**\"*, one would say *\"I'll meet you at **l**\"*.
 
-*"Let's get this done by **seven thirty PM**"* becomes *"Let's get this done by **g 5**"*.
+*\"Let's get this done by **seven thirty PM**\"* becomes *\"Let's get this done by **g 5**\"*.
 
-*"The seminar starts at **eight forty-five**"* is written as *"The seminar starts at **h O**"*, and spoken as *"The seminar starts at **h o-upper**"*.
+*\"The seminar starts at **eight forty-five**\"* is written as *\"The seminar starts at **h O**\"*, and spoken as *\"The seminar starts at **h o-upper**\"*.
 
 ## ReBase60 Encoding
 
-ReBase60 stands for "redesigned base 60" and is a way to encode a number from zero to 59 as a single character - a ReBase60 digit.
+ReBase60 stands for **Redesigned Base 60** and is a way to encode a number from zero to 59 as a single character - a ReBase60 digit.
 
 The encoding is designed in a way that tries to reuse common understanding about digits and letters, particularly their ordering.
 
@@ -93,11 +93,11 @@ The clock face showcases a couple of experimental features.
 
 An alternative display mode that uses uppercase letters only and underlines them in the second half of a cycle.
 
-**24-hour format** switch can be used to shift between **standard** and **uppercase** display modes.
+(You can use **24-hour format** switch in clock settings, to shift between **standard** and **uppercase** display modes.)
 
-### Thermomether
+### Thermometer
 
-The vertical position of the seconds digit maps to temperature. When positioned in the middle of the screen, it means that the temperature is 0°C (32°F). When on the top, the temperature is 50°C (122°F) or above. When on the bottom, the temperature is -50°C (-58°F) or below.
+The vertical position of the seconds digit maps to temperature, as reported by the clock. When positioned in the middle of the screen, it means that the temperature is 0°C (32°F). When on the top, the temperature is 50°C (122°F) or above. When on the bottom, the temperature is -50°C (-58°F) or below.
 
 These limitations render the thermometer (almost) useless in extreme conditions, but in those conditions getting an accurate temperature reading would probably be among the least of your problems.
 
