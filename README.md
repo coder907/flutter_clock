@@ -14,4 +14,4 @@ Example [Digital Clock](digital_clock)
 
 Example [ReBase60 Clock](rebase60_clock)
 
-<img src='digital_clock/rebase60.png' width='350'>
+<img src='rebase60_clock/rebase60.png' width='350'>
