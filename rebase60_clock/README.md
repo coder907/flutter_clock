@@ -1,5 +1,7 @@
 # ReBase60 Clock
 
+<img src='rebase60.gif' width='350'>
+
 ## Introduction
 
 ReBase60 Clock is a clock face that uses ReBase60 encoding to present time - the kind of presentation that is efficient from both written and spoken point of view.
